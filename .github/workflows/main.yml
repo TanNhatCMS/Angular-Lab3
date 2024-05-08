@@ -18,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [14.x, 16.x, 18.x, 20.x]
 
     steps:
     - uses: actions/checkout@v4
@@ -29,16 +29,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
-      run: |
-        npm install pnpm
-        pnpm install
+      run: npm install
 #    - name: Lint
 #      run: npm run lint
     - name: Build
-      run: pnpm run build
-    - name: Watch
-      run: pnpm run watch
+      run: npm run build
     - name: Test
-      run: pnpm test
+      run: npm test
 #   - name: E2E
 #     run: npm run e2e -- --configuration=ci
