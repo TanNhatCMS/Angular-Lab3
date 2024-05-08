@@ -1,5 +1,5 @@
 # Lab3
-[![Test Angular](https://github.com/TanNhatCMS/Angular-Lab3/actions/workflows/main.yml/badge.svg)](https://github.com/TanNhatCMS/Angular-Lab3/actions/workflows/main.yml)
+[![Build Angular](https://github.com/TanNhatCMS/Angular-Lab3/actions/workflows/main.yml/badge.svg)](https://github.com/TanNhatCMS/Angular-Lab3/actions/workflows/main.yml)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
 
