@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="card">
+      <div class="card-header text-center text-info">
+        <h5>Mảng ngẫu nhiên 2 chiều</h5>
+      </div>
+      <div class="card-body">
+        <div class="container mt-4">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="rows">Số dòng:</label>
+                <input type="number" class="form-control" id="rows" name="rows" [(ngModel)]="R">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="cols">Số cột:</label>
+                <input type="number" class="form-control" id="cols" name="cols" [(ngModel)]="C">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label></label> <!-- Dùng để tạo không gian trống giữa label và button -->
+                <button class="btn btn-primary btn-block" (click)="generateArray()">Ngẫu nhiên</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="Array.length">
+          <label>Các phần tử trong mảng 2 chiều:</label>
+          <div class="text-danger text-justify">
+            <ul *ngFor="let arr of Array">
+              <li>{{ arr }}</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <label>Tính tổng các phần tử trên cùng một dòng:</label>
+            <div class=" text-info text-justify">
+              {{ SumRows() }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
