@@ -3,22 +3,31 @@
 # https://help.github.com/en/articles/workflow-syntax-for-github-actions
 name: Test Angular
 
-on: [push]
-
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+    
 jobs:
   build:
-
     # Machine environment:
     # https://help.github.com/en/articles/software-in-virtual-environments-for-github-actions#ubuntu-1804-lts
     # We specify the Node.js version manually below, and use versioned Chrome from Puppeteer.
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js 20.10.0
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
       with:
-        node-version: 20.10.0
+        node-version: ${{ matrix.node-version }}
+
     - name: Install dependencies
       run: npm install
     - name: Lint
